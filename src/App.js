@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import logo, { ReactComponent } from "./logo.svg";
+import "./App.css";
+import React from "react";
+import Badge from "./Badge";
+
+const students = [
+  { name: "Daisy", age: "4" },
+  { name: "Cernan", age: "125" },
+  { name: "Ashley", age: "31" },
+];
 
 function App() {
+  const studentElements = students.map((student) => (
+    <Badge student={student} />
+  ));
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Welcome to React!!!</p>
+        {studentElements}
       </header>
     </div>
   );
 }
+
+// class App extends React.Component {
+//   render() {
+//     const studentElements = students.map((student) => (
+//       <Badge student={student} />
+//     ));
+//     return (
+//       <div className="App">
+//         <header className="App-header">
+//           <p>Welcome to React!!!</p>
+//           {studentElements}
+//         </header>
+//       </div>
+//     );
+//   }
+// }
 
 export default App;
